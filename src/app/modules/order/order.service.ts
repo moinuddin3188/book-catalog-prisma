@@ -22,7 +22,18 @@ const getAllOrder = async (): Promise<Order[]> => {
   return allOrder;
 };
 
+const getSingleOrder = async (id: string): Promise<Order | null> => {
+  const singleOrder = await prisma.order.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return singleOrder;
+};
+
 export const OrderService = {
   createOrder,
   getAllOrder,
+  getSingleOrder,
 };
