@@ -8,7 +8,7 @@ import { ProfileService } from './profile.service';
 const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
 
-  const result = await ProfileService.getUserProfile(user?.id);
+  const result = await ProfileService.getUserProfile(user?.userId);
 
   sendResponse<User | null>(res, {
     statusCode: httpStatus.OK,

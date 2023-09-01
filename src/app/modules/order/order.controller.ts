@@ -9,7 +9,7 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
   const { ...data } = req.body;
   const user = req.user;
 
-  const result = await OrderService.createOrder(user?.id, data);
+  const result = await OrderService.createOrder(user?.userId, data);
 
   sendResponse<Order>(res, {
     statusCode: httpStatus.OK,
@@ -20,7 +20,9 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllOrder = catchAsync(async (req: Request, res: Response) => {
-  const result = await OrderService.getAllOrder();
+  const user = req.user
+
+  const result = await OrderService.getAllOrder(user?.userId);
 
   sendResponse<Order[]>(res, {
     statusCode: httpStatus.OK,
