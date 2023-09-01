@@ -21,6 +21,15 @@ model User {
   profileImg String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Category {
+  id    String @id @default(uuid())
+  title String @unique
+
+  @@map("categories")
 }
 
 enum role {
