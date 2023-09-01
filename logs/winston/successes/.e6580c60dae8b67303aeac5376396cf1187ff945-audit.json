@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\successes\\.e6580c60dae8b67303aeac5376396cf1187ff945-audit.json",
+    "files": [
+        {
+            "date": 1693541829003,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\successes\\phu-2023-01-09-10-success.log",
+            "hash": "4cff2f2d3ea30f57bf691b840f4befb766befc64d2e4dc3cac816211b1ec6449"
+        }
+    ],
+    "hashType": "sha256"
+}
