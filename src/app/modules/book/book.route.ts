@@ -9,4 +9,6 @@ router.get('/', BookController.getAllBook);
 
 router.get('/:id', BookController.getSingleBook);
 
+router.patch('/:id', BookController.updateBook);
+
 export const BookRoutes = router;
