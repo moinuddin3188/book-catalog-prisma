@@ -128,9 +128,20 @@ const updateBook = async (
   return updatedBook;
 };
 
+const deleteBook = async (id: string): Promise<Book> => {
+  const deletedBook = await prisma.book.delete({
+    where: {
+      id,
+    },
+  });
+
+  return deletedBook;
+};
+
 export const BookService = {
   createBook,
   getAllBook,
   getSingleBook,
   updateBook,
+  deleteBook,
 };
