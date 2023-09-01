@@ -7,6 +7,8 @@ router.get('/', UserController.getAllUser);
 
 router.get('/:id', UserController.getSingleUser);
 
-router.get('/:id', UserController.updateUser);
+router.patch('/:id', UserController.updateUser);
+
+router.delete('/:id', UserController.updateUser);
 
 export const UserRoutes = router;

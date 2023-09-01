@@ -24,7 +24,7 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse<Omit<User, 'password'> | null>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Users retrieved successfully!',
+    message: 'User retrieved successfully!',
     data: result,
   });
 });
@@ -38,7 +38,20 @@ const updateUser = catchAsync(async (req: Request, res: Response) => {
   sendResponse<Omit<User, 'password'>>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Users retrieved successfully!',
+    message: 'Users updated successfully!',
+    data: result,
+  });
+});
+
+const deleteUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await UserService.deleteUser(id);
+
+  sendResponse<Omit<User, 'password'>>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User deleted successfully!',
     data: result,
   });
 });
@@ -47,4 +60,5 @@ export const UserController = {
   getAllUser,
   getSingleUser,
   updateUser,
+  deleteUser,
 };
