@@ -16,6 +16,20 @@ const getAllUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await UserService.getSingleUser(id);
+
+  sendResponse<Omit<User, 'password'> | null>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Users retrieved successfully!',
+    data: result,
+  });
+});
+
 export const UserController = {
   getAllUser,
+  getSingleUser,
 };
