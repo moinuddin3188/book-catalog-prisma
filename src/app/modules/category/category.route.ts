@@ -9,4 +9,6 @@ router.get('/', CategoryController.getAllCategories);
 
 router.get('/:id', CategoryController.getSingleCategory);
 
+router.patch('/:id', CategoryController.updateCategory);
+
 export const CategoryRoutes = router;
