@@ -28,8 +28,25 @@ model User {
 model Category {
   id    String @id @default(uuid())
   title String @unique
+  books  Book[]
 
   @@map("categories")
+}
+
+model Book {
+  id              String   @id @default(uuid())
+  title           String
+  author          String
+  genre           String
+  price           Float
+  publicationDate DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  @@map("books")
 }
 
 enum role {
