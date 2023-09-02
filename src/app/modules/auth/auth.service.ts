@@ -50,10 +50,10 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     );
   }
 
-  // create access token and refresh token
+  // create token
   const { id, role } = isUserExist;
 
-  const accessToken = jwtHelpers.createToken(
+  const token = jwtHelpers.createToken(
     {
       userId: id,
       role,
@@ -62,18 +62,8 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     config.jwt.expires_in as string
   );
 
-  const refreshToken = jwtHelpers.createToken(
-    {
-      userId: id,
-      role,
-    },
-    config.jwt.refresh_secret as Secret,
-    config.jwt.refresh_expires_in as string
-  );
-
   return {
-    accessToken,
-    refreshToken,
+    token
   };
 };
 
