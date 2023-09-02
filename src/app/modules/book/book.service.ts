@@ -11,6 +11,9 @@ import { IBookFilters } from './book.interface';
 const createBook = async (data: Book): Promise<Book> => {
   const newBook = await prisma.book.create({
     data,
+    include: {
+      category: true,
+    },
   });
 
   if (!newBook) {
@@ -45,9 +48,7 @@ const getAllBook = async (
 
   if (filterData.category) {
     categoryFilter = {
-      category: {
-        id: filterData.category,
-      },
+      categoryId: filterData.category,
     };
   }
 
@@ -56,8 +57,8 @@ const getAllBook = async (
   if (filterData.maxPrice || filterData.minPrice) {
     priceFilter = {
       price: {
-        gte: filterData.minPrice,
-        lte: filterData.maxPrice,
+        gte: Number(filterData.minPrice),
+        lte: Number(filterData.maxPrice),
       },
     };
   }

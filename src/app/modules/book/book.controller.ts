@@ -44,7 +44,7 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
   sendResponse<Book | null>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book retrieved Successfully!',
+    message: 'Single Book retrieved Successfully!',
     data: result,
   });
 });
@@ -58,7 +58,7 @@ const getBookByCategoryId = catchAsync(async (req: Request, res: Response) => {
   sendResponse<Book[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Book retrieved Successfully!',
+    message: 'Book retrieved Successfully By Category!',
     meta: result.meta,
     data: result.data,
   });

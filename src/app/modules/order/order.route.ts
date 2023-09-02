@@ -14,12 +14,10 @@ router.post(
   OrderController.createOrder
 );
 
-router.get('/', auth(ENUM_USER_ROLE.ADMIN), OrderController.getAllOrder);
-
 router.get(
   '/',
-  auth(ENUM_USER_ROLE.CUSTOMER),
-  OrderController.getAllOrderForAUser
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.CUSTOMER),
+  OrderController.getAllOrder
 );
 
 router.get(

@@ -18,22 +18,20 @@ const createOrder = async (
   return newOrder;
 };
 
-const getAllOrder = async (userId: string): Promise<Order[]> => {
-  const allOrder = await prisma.order.findMany({
-    where: {
-      userId: userId,
-    },
-  });
+const getAllOrder = async (userId: string, role: string): Promise<Order[]> => {
+  let allOrder: Order[] = []
 
-  return allOrder;
-};
+  if(role === 'customer'){
+    allOrder = await prisma.order.findMany({
+      where: {
+        userId: userId,
+      },
+    });
+  }
 
-const getAllOrderForAUser = async (userId: string): Promise<Order[]> => {
-  const allOrder = await prisma.order.findMany({
-    where: {
-      userId,
-    },
-  });
+  if(role === 'admin'){
+    allOrder = await prisma.order.findMany();
+  }
 
   return allOrder;
 };
@@ -59,6 +57,5 @@ const getSingleOrder = async (
 export const OrderService = {
   createOrder,
   getAllOrder,
-  getAllOrderForAUser,
   getSingleOrder,
 };

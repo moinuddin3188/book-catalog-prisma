@@ -14,6 +14,31 @@
             "date": 1693574242890,
             "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-01-09-19-error.log",
             "hash": "11785ace172b63ae376126bb93c8d1315c0c4aab113c406a20fff4595497e14d"
+        },
+        {
+            "date": 1693631421375,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-02-09-11-error.log",
+            "hash": "a0118c0803a3b2bb7e94afea8dc7423b05021cf433bd818ebdcbb5ce15486fde"
+        },
+        {
+            "date": 1693634447905,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-02-09-12-error.log",
+            "hash": "b1e87a4ce12f7af3b704c9da3c28d7637bee488aa79caa3ce37569fda61f19b2"
+        },
+        {
+            "date": 1693645737904,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-02-09-15-error.log",
+            "hash": "90271fd8deeca61d8718bd5ad6445c5dea463c698b5b070a97f8c168eb3e9380"
+        },
+        {
+            "date": 1693649230769,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-02-09-16-error.log",
+            "hash": "94714d2c456f97b850fe9ab0017fc528c3f5f6d324b3f98f051ca733ee6a2884"
+        },
+        {
+            "date": 1693652612043,
+            "name": "D:\\Web Development\\Jhanker Mahbub\\book-catallog-prisma\\logs\\winston\\errors\\phu-2023-02-09-17-error.log",
+            "hash": "0c12eab8246ed05ea1577305c75066906e47a863feb4fb1dbb09958c884cbf88"
         }
     ],
     "hashType": "sha256"
