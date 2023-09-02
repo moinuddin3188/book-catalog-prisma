@@ -23,6 +23,6 @@ router.patch(
 
 router.delete('/:id', BookController.deleteBook);
 
-router.get('/:categoryId', BookController.deleteBook);
+router.get('/:categoryId/category', BookController.deleteBook);
 
 export const BookRoutes = router;

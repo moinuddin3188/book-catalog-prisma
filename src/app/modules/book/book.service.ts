@@ -109,19 +109,49 @@ const getSingleBook = async (id: string): Promise<Book | null> => {
     where: {
       id,
     },
+    include: {
+      category: true,
+    },
   });
 
   return singleBook;
 };
 
-const getBookByCategoryId = async (categoryId: string): Promise<Book[]> => {
+const getBookByCategoryId = async (
+  categoryId: string,
+  paginationOption: IPaginationOptions
+): Promise<IGenericResponse<Book[]>> => {
+  const { page, size, skip } =
+    paginationHelpers.calculatePagination(paginationOption);
+
   const booksByCategory = await prisma.book.findMany({
+    where: {
+      categoryId,
+    },
+    include: {
+      category: true,
+    },
+    skip,
+    take: size,
+  });
+
+  const total = await prisma.book.count({
     where: {
       categoryId,
     },
   });
 
-  return booksByCategory;
+  const totalPage = paginationHelpers.calculateTotalPage(total, size);
+
+  return {
+    meta: {
+      page,
+      size,
+      total,
+      totalPage,
+    },
+    data: booksByCategory,
+  };
 };
 
 const updateBook = async (

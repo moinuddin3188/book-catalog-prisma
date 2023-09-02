@@ -51,14 +51,16 @@ const getSingleBook = catchAsync(async (req: Request, res: Response) => {
 
 const getBookByCategoryId = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.categoryId;
+  const options = pick(req.query, paginationFields);
 
-  const result = await BookService.getBookByCategoryId(id);
+  const result = await BookService.getBookByCategoryId(id, options);
 
   sendResponse<Book[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Book retrieved Successfully!',
-    data: result,
+    meta: result.meta,
+    data: result.data,
   });
 });
 
