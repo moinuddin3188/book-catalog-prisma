@@ -20,27 +20,45 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllOrder = catchAsync(async (req: Request, res: Response) => {
-  const user = req.user
+  const user = req.user;
 
   const result = await OrderService.getAllOrder(user?.userId);
 
   sendResponse<Order[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Order placed successfully',
+    message: 'Order retrieved successfully',
+    data: result,
+  });
+});
+
+const getAllOrderForAUser = catchAsync(async (req: Request, res: Response) => {
+  const user = req.user;
+
+  const result = await OrderService.getAllOrderForAUser(user?.userId);
+
+  sendResponse<Order[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order retrieved successfully',
     data: result,
   });
 });
 
 const getSingleOrder = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
+  const user = req.user;
 
-  const result = await OrderService.getSingleOrder(id);
+  const result = await OrderService.getSingleOrder(
+    id,
+    user?.userId,
+    user?.role
+  );
 
   sendResponse<Order | null>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Order placed successfully',
+    message: 'Order retrieved successfully',
     data: result,
   });
 });
@@ -48,5 +66,6 @@ const getSingleOrder = catchAsync(async (req: Request, res: Response) => {
 export const OrderController = {
   createOrder,
   getAllOrder,
+  getAllOrderForAUser,
   getSingleOrder,
 };

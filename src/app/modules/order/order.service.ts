@@ -1,4 +1,6 @@
 import { Order } from '@prisma/client';
+import httpStatus from 'http-status';
+import ApiError from '../../../errors/ApiError';
 import prisma from '../../../shared/prisma';
 import { ICreateOrderRequest } from './order.Interface';
 
@@ -26,12 +28,30 @@ const getAllOrder = async (userId: string): Promise<Order[]> => {
   return allOrder;
 };
 
-const getSingleOrder = async (id: string): Promise<Order | null> => {
+const getAllOrderForAUser = async (userId: string): Promise<Order[]> => {
+  const allOrder = await prisma.order.findMany({
+    where: {
+      userId,
+    },
+  });
+
+  return allOrder;
+};
+
+const getSingleOrder = async (
+  id: string,
+  userId: string,
+  role: string
+): Promise<Order | null> => {
   const singleOrder = await prisma.order.findUnique({
     where: {
       id,
     },
   });
+
+  if (role === 'customer' && singleOrder?.userId !== userId) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
+  }
 
   return singleOrder;
 };
@@ -39,5 +59,6 @@ const getSingleOrder = async (id: string): Promise<Order | null> => {
 export const OrderService = {
   createOrder,
   getAllOrder,
+  getAllOrderForAUser,
   getSingleOrder,
 };
