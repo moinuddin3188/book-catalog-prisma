@@ -16,6 +16,9 @@ const createBook = zod_1.z.object({
         price: zod_1.z.number({
             required_error: 'Price is required',
         }),
+        publicationDate: zod_1.z.string({
+            required_error: 'Publication date is required',
+        }),
         categoryId: zod_1.z.string({
             required_error: 'Category Id is required',
         }),

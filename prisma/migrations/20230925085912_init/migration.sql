@@ -35,6 +35,7 @@ CREATE TABLE "books" (
     "author" TEXT NOT NULL,
     "genre" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
+    "publicationDate" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "categoryId" TEXT NOT NULL,
