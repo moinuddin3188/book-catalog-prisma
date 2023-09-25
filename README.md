@@ -1,4 +1,4 @@
-# Assignment 4 (Book Catallog Backend With Prisma)
+# Assignment 8 (Book Catalog Backend With Prisma)
 
 This is a simple backend application for book listing. Users can signup with there email, password and other information. And can order books. Andmin can create Book, Category. Also can update and delete Books and categories.
 
