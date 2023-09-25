@@ -17,7 +17,7 @@ const createBook = async (data: Book): Promise<Book> => {
   });
 
   if (!newBook) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create book');
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create book!');
   }
 
   return newBook;
