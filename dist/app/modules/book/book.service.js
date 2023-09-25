@@ -37,7 +37,7 @@ const createBook = (data) => __awaiter(void 0, void 0, void 0, function* () {
         },
     });
     if (!newBook) {
-        throw new ApiError_1.default(http_status_1.default.OK, 'Book created Successfully!');
+        throw new ApiError_1.default(http_status_1.default.BAD_REQUEST, 'Failed to create book');
     }
     return newBook;
 });
